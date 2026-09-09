@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+    background: #000000;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-zinc-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold-500;
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #DAA520 #27272a;
+  }
+
+  /* Form elements styling */
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+  }
+
+  /* Select dropdown styling - FIXED */
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: white !important;
+    background-color: #27272a !important;
+  }
+
+  select option {
+    background-color: #27272a !important;
+    color: white !important;
+    padding: 8px 12px;
+  }
+
+  select option:checked {
+    background-color: #DAA520 !important;
+    color: black !important;
+  }
+
+  select option:hover {
+    background-color: #3f3f46 !important;
+  }
+
+  /* Focus styles */
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+  }
+
+  /* Checkbox styling */
+  input[type="checkbox"] {
+    accent-color: #DAA520;
+  }
+
+  /* Prevent blue highlight on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .glass-effect:hover {
+    @apply bg-white/10 border-white/20;
+  }
+
+  /* Custom button styles */
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-black font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border border-gold-400 text-gold-400 font-semibold rounded-full hover:bg-gold-400 hover:text-black transition-all duration-300;
+  }
+
+  /* Form input styles */
+  .form-input {
+    @apply w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300;
+  }
+
+  .form-input.error {
+    @apply border-red-500 focus:border-red-500 focus:ring-red-500/20;
+  }
+
+  .form-select {
+    @apply form-input appearance-none cursor-pointer bg-zinc-800;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #DAA520 0%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Responsive text utilities */
+  .text-responsive-xl {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  .text-responsive-2xl {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  .text-responsive-3xl {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(218, 165, 32, 0.3);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(218, 165, 32, 0.6);
+  }
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Ensure proper stacking context */
+.fixed {
+  z-index: 1000;
+}
+
+/* Improve button accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #DAA520;
+  outline-offset: 2px;
+}
+
+/* Improve form accessibility */
+input:invalid {
+  box-shadow: none;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md;
+  }
+  
+  /* Improve touch targets */
+  button, a, input, select, textarea {
+    min-height: 44px;
+  }
+}
+
+/* Fix for select dropdown on all browsers */
+select {
+  background-image: none !important;
+  color: white !important;
+}
+
+select:focus {
+  color: white !important;
+}
+
+/* Webkit specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  select {
+    background-color: #27272a !important;
+    color: white !important;
+  }
+  
+  select option {
+    background-color: #27272a !important;
+    color: white !important;
+  }
+}
+
+/* Firefox specific fixes */
+@-moz-document url-prefix() {
+  select {
+    background-color: #27272a !important;
+    color: white !important;
+  }
+  
+  select option {
+    background-color: #27272a !important;
+    color: white !important;
+  }
+}

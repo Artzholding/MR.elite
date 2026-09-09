@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mr. Elite - International High Class Companion Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Mr. Elite - Premium international companion service for discerning clientele. Discrete, professional, and unforgettable experiences.">
+    <script>
+      // Block MetaMask injection before any other scripts load
+      (function() {
+        'use strict';
+        
+        // More robust ethereum object blocking with getter that returns undefined
+        Object.defineProperty(window, 'ethereum', {
+          get: function() { return undefined; },
+          set: function() { return false; },
+          writable: false,
+          configurable: false,
+          enumerable: false
+        });
+        
+        // Block Web3 objects
+        Object.defineProperty(window, 'web3', {
+          get: function() { return undefined; },
+          set: function() { return false; },
+          writable: false,
+          configurable: false,
+          enumerable: false
+        });
+        
+        Object.defineProperty(window, 'Web3', {
+          get: function() { return undefined; },
+          set: function() { return false; },
+          writable: false,
+          configurable: false,
+          enumerable: false
+        });
+        
+        // Disable common Web3 detection
+        Object.defineProperty(window, 'isMetaMask', {
+          value: false,
+          writable: false,
+          configurable: false,
+          enumerable: false
+        });
+        
+        Object.defineProperty(window, 'isTrust', {
+          value: false,
+          writable: false,
+          configurable: false,
+          enumerable: false
+        });
+        
+        Object.defineProperty(window, 'isCoinbaseWallet', {
+          value: false,
+          writable: false,
+          configurable: false,
+          enumerable: false
+        });
+        
+        console.log('Web3 providers disabled for Mr. Elite website');
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

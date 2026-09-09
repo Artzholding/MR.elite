@@ -16,7 +16,7 @@ const Logo = ({ size = 'medium', className = '', animated = false }) => {
     <div className={`${currentSize.container} ${className} relative`}>
       {/* Outer Ring with Gradient */}
       <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 p-0.5">
-        <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
+        <div className="w-full h-full rounded-full bg-ink-950 flex items-center justify-center">
           {/* Inner Content */}
           <div className="text-center">
             {/* ME Text */}
@@ -105,7 +105,7 @@ export const LogoSVG = ({ width = 48, height = 48, className = '' }) => (
     />
     
     {/* Inner black circle */}
-    <circle cx="50" cy="50" r="40" fill="#000000" />
+    <circle cx="50" cy="50" r="40" fill="#0c0a09" />
     
     {/* ME Text */}
     <text 

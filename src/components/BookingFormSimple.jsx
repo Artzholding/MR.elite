@@ -203,29 +203,30 @@ Betaalmethode: ${formData.paymentMethod}
 
   if (isSubmitted) {
     return (
-      <section id="booking" className="py-20 bg-gradient-to-br from-zinc-900 to-black">
-        <div className="max-w-2xl mx-auto px-4 text-center">
+      <section id="booking" className="py-24 md:py-32 bg-ink-950 bg-grain relative overflow-hidden">
+        <div className="absolute top-1/3 left-0 w-72 h-72 bg-gold-600/[0.06] rounded-full blur-[120px]" />
+        <div className="max-w-2xl mx-auto px-4 text-center relative z-10">
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="glass-effect rounded-2xl p-12"
+            className="glass-card p-12"
           >
-            <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="text-white" size={40} />
+            <div className="w-16 h-16 bg-gradient-to-br from-green-400/20 to-green-600/10 border border-green-400/30 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="text-green-400" size={32} />
             </div>
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="font-serif text-3xl font-semibold text-white mb-4">
               Email Client Geopend
             </h2>
-            <p className="text-white/80 mb-8 leading-relaxed">
-              Uw email client is geopend met alle boekingsgegevens. <strong>Verstuur de email</strong> om uw boeking te voltooien. Wij nemen binnen 24 uur contact met u op.
+            <p className="text-white/60 mb-8 leading-relaxed font-light">
+              Uw email client is geopend met alle boekingsgegevens. <strong className="text-white/80">Verstuur de email</strong> om uw boeking te voltooien. Wij nemen binnen 24 uur contact met u op.
             </p>
-            <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={resetForm}
-                className="px-8 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-black font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300 mr-4"
+                className="px-8 py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 text-ink-950 font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold-500/25"
               >
                 Nieuwe Boeking
               </motion.button>
@@ -233,7 +234,7 @@ Betaalmethode: ${formData.paymentMethod}
                 href="tel:+31616335723"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center space-x-2 px-6 py-3 border border-gold-400 text-gold-400 font-semibold rounded-full hover:bg-gold-400 hover:text-black transition-all duration-300"
+                className="inline-flex items-center space-x-2 px-6 py-3.5 border border-gold-400/50 text-gold-400 font-semibold rounded-full hover:bg-gold-400 hover:text-ink-950 hover:border-gold-400 transition-all duration-300"
               >
                 <Phone size={18} />
                 <span>Direct Bellen</span>
@@ -246,8 +247,9 @@ Betaalmethode: ${formData.paymentMethod}
   }
 
   return (
-    <section id="booking" className="py-20 bg-gradient-to-br from-zinc-900 to-black">
-      <div className="max-w-4xl mx-auto px-4">
+    <section id="booking" className="py-24 md:py-32 bg-ink-950 bg-grain relative overflow-hidden">
+      <div className="absolute top-1/3 right-0 w-80 h-80 bg-gold-600/[0.05] rounded-full blur-[120px]" />
+      <div className="max-w-4xl mx-auto px-4 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -256,21 +258,22 @@ Betaalmethode: ${formData.paymentMethod}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <span className="section-label mb-6 block">Booking</span>
+          <h2 className="section-title mb-6">
             Boekingsformulier
           </h2>
-          <p className="text-xl text-gold-400 mb-8">
+          <p className="text-lg text-white/50 font-light mb-8">
             Vul onderstaand formulier volledig in voor uw boeking
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto mb-8" />
+          <div className="divider-gold mb-8" />
           
           {/* Notice */}
-          <div className="glass-effect rounded-lg p-4 max-w-2xl mx-auto">
+          <div className="glass-card p-5 max-w-2xl mx-auto">
             <div className="flex items-center justify-center space-x-2 text-gold-400 mb-2">
-              <Mail size={20} />
-              <span className="font-semibold">Email Client Methode</span>
+              <Mail size={18} />
+              <span className="font-medium text-sm tracking-wide">Email Client Methode</span>
             </div>
-            <p className="text-white/80 text-sm">
+            <p className="text-white/55 text-sm font-light">
               Na het invullen opent uw email programma automatisch met alle gegevens. Verstuur de email om uw boeking te voltooien.
             </p>
           </div>
@@ -282,18 +285,18 @@ Betaalmethode: ${formData.paymentMethod}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="glass-effect rounded-2xl p-8 md:p-12"
+          className="glass-card p-8 md:p-12"
         >
           <form onSubmit={handleSubmit} className="space-y-8" noValidate>
             {/* Booking History */}
             <div>
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
-                <Shield className="text-gold-400 mr-3" size={20} />
+              <h3 className="font-serif text-lg font-semibold text-white mb-6 flex items-center">
+                <Shield className="text-gold-400 mr-3" size={18} />
                 Boekingshistorie
               </h3>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-3">
+                  <label className="block text-white/60 text-sm font-light mb-3">
                     Heeft u al eerder bij ons geboekt? *
                   </label>
                   <p className="text-white/60 text-sm mb-3">Vul dan JA in om uw boekingsaanvraag te voltooien.</p>
@@ -307,7 +310,7 @@ Betaalmethode: ${formData.paymentMethod}
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">Ja</span>
+                      <span className="text-white/80 text-sm font-light">Ja</span>
                     </label>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -318,7 +321,7 @@ Betaalmethode: ${formData.paymentMethod}
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">Nee</span>
+                      <span className="text-white/80 text-sm font-light">Nee</span>
                     </label>
                   </div>
                   {errors.previousBooking && (
@@ -327,7 +330,7 @@ Betaalmethode: ${formData.paymentMethod}
                 </div>
 
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-3">
+                  <label className="block text-white/60 text-sm font-light mb-3">
                     Ik ben een *
                   </label>
                   <div className="flex space-x-4">
@@ -340,7 +343,7 @@ Betaalmethode: ${formData.paymentMethod}
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">Man</span>
+                      <span className="text-white/80 text-sm font-light">Man</span>
                     </label>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -351,7 +354,7 @@ Betaalmethode: ${formData.paymentMethod}
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">Vrouw</span>
+                      <span className="text-white/80 text-sm font-light">Vrouw</span>
                     </label>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -362,7 +365,7 @@ Betaalmethode: ${formData.paymentMethod}
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">Koppel</span>
+                      <span className="text-white/80 text-sm font-light">Koppel</span>
                     </label>
                   </div>
                   {errors.clientType && (
@@ -374,13 +377,13 @@ Betaalmethode: ${formData.paymentMethod}
 
             {/* Personal Information */}
             <div>
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
-                <User className="text-gold-400 mr-3" size={20} />
+              <h3 className="font-serif text-lg font-semibold text-white mb-6 flex items-center">
+                <User className="text-gold-400 mr-3" size={18} />
                 Persoonlijke Gegevens
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-2">
+                  <label className="block text-white/60 text-sm font-light mb-2">
                     Voornaam *
                   </label>
                   <input
@@ -389,9 +392,7 @@ Betaalmethode: ${formData.paymentMethod}
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 ${
-                      errors.firstName ? 'border-red-500' : 'border-white/20'
-                    }`}
+                    className={`form-input ${errors.firstName ? 'error' : ''}`}
                     placeholder="Uw voornaam"
                   />
                   {errors.firstName && (
@@ -399,7 +400,7 @@ Betaalmethode: ${formData.paymentMethod}
                   )}
                 </div>
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-2">
+                  <label className="block text-white/60 text-sm font-light mb-2">
                     Achternaam *
                   </label>
                   <input
@@ -408,9 +409,7 @@ Betaalmethode: ${formData.paymentMethod}
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 ${
-                      errors.lastName ? 'border-red-500' : 'border-white/20'
-                    }`}
+                    className={`form-input ${errors.lastName ? 'error' : ''}`}
                     placeholder="Uw achternaam"
                   />
                   {errors.lastName && (
@@ -422,13 +421,13 @@ Betaalmethode: ${formData.paymentMethod}
 
             {/* Contact Information */}
             <div>
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
-                <Mail className="text-gold-400 mr-3" size={20} />
+              <h3 className="font-serif text-lg font-semibold text-white mb-6 flex items-center">
+                <Mail className="text-gold-400 mr-3" size={18} />
                 Contactgegevens
               </h3>
               <div className="space-y-6">
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-2">
+                  <label className="block text-white/60 text-sm font-light mb-2">
                     Emailadres *
                   </label>
                   <input
@@ -437,9 +436,7 @@ Betaalmethode: ${formData.paymentMethod}
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 ${
-                      errors.email ? 'border-red-500' : 'border-white/20'
-                    }`}
+                    className={`form-input ${errors.email ? 'error' : ''}`}
                     placeholder="Emailadres"
                   />
                   {errors.email && (
@@ -447,7 +444,7 @@ Betaalmethode: ${formData.paymentMethod}
                   )}
                 </div>
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-2">
+                  <label className="block text-white/60 text-sm font-light mb-2">
                     Bevestig emailadres *
                   </label>
                   <input
@@ -456,9 +453,7 @@ Betaalmethode: ${formData.paymentMethod}
                     value={formData.confirmEmail}
                     onChange={handleInputChange}
                     required
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 ${
-                      errors.confirmEmail ? 'border-red-500' : 'border-white/20'
-                    }`}
+                    className={`form-input ${errors.confirmEmail ? 'error' : ''}`}
                     placeholder="Bevestig emailadres"
                   />
                   {errors.confirmEmail && (
@@ -466,7 +461,7 @@ Betaalmethode: ${formData.paymentMethod}
                   )}
                 </div>
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-2">
+                  <label className="block text-white/60 text-sm font-light mb-2">
                     Telefoonnummer *
                   </label>
                   <input
@@ -475,9 +470,7 @@ Betaalmethode: ${formData.paymentMethod}
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 ${
-                      errors.phone ? 'border-red-500' : 'border-white/20'
-                    }`}
+                    className={`form-input ${errors.phone ? 'error' : ''}`}
                     placeholder="+31 6 12345678"
                   />
                   {errors.phone && (
@@ -489,13 +482,13 @@ Betaalmethode: ${formData.paymentMethod}
 
             {/* Service Selection */}
             <div>
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
-                <Heart className="text-gold-400 mr-3" size={20} />
+              <h3 className="font-serif text-lg font-semibold text-white mb-6 flex items-center">
+                <Heart className="text-gold-400 mr-3" size={18} />
                 Service Selectie
               </h3>
               <div className="space-y-6">
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-3">
+                  <label className="block text-white/60 text-sm font-light mb-3">
                     Ik wil een arrangement:
                   </label>
                   <div className="space-y-2">
@@ -516,14 +509,14 @@ Betaalmethode: ${formData.paymentMethod}
                           onChange={handleInputChange}
                           className="mr-3 accent-gold-500"
                         />
-                        <span className="text-white">{option}</span>
+                        <span className="text-white/80 text-sm font-light">{option}</span>
                       </label>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-3">
+                  <label className="block text-white/60 text-sm font-light mb-3">
                     Ik wil een experience:
                   </label>
                   <div className="space-y-2">
@@ -545,14 +538,14 @@ Betaalmethode: ${formData.paymentMethod}
                           onChange={handleInputChange}
                           className="mr-3 accent-gold-500"
                         />
-                        <span className="text-white">{option}</span>
+                        <span className="text-white/80 text-sm font-light">{option}</span>
                       </label>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-2">
+                  <label className="block text-white/60 text-sm font-light mb-2">
                     Wie wilt u boeken? *
                   </label>
                   <div className="relative">
@@ -561,9 +554,7 @@ Betaalmethode: ${formData.paymentMethod}
                       value={formData.companion}
                       onChange={handleInputChange}
                       required
-                      className={`w-full px-4 py-3 bg-zinc-800 border rounded-lg text-white focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 appearance-none cursor-pointer ${
-                        errors.companion ? 'border-red-500' : 'border-white/20'
-                      }`}
+                      className={`form-select ${errors.companion ? 'error' : ''}`}
                     >
                       <option value="" className="bg-zinc-800 text-white">Selecteer companion</option>
                       <option value="Adam" className="bg-zinc-800 text-white">Adam</option>
@@ -581,7 +572,7 @@ Betaalmethode: ${formData.paymentMethod}
 
 
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-3">
+                  <label className="block text-white/60 text-sm font-light mb-3">
                     Extra dienst: (optioneel)
                   </label>
                   <div className="space-y-2">
@@ -599,7 +590,7 @@ Betaalmethode: ${formData.paymentMethod}
                           onChange={() => handleExtraServiceChange(service.name)}
                           className="mr-3 accent-gold-500"
                         />
-                        <span className="text-white">{service.name} {service.price}</span>
+                        <span className="text-white/80 text-sm font-light">{service.name} {service.price}</span>
                       </label>
                     ))}
                   </div>
@@ -609,13 +600,13 @@ Betaalmethode: ${formData.paymentMethod}
 
             {/* Location & Timing */}
             <div>
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
-                <MapPin className="text-gold-400 mr-3" size={20} />
+              <h3 className="font-serif text-lg font-semibold text-white mb-6 flex items-center">
+                <MapPin className="text-gold-400 mr-3" size={18} />
                 Locatie & Timing
               </h3>
               <div className="space-y-6">
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-2">
+                  <label className="block text-white/60 text-sm font-light mb-2">
                     Land van de boeking *
                   </label>
                   <div className="flex space-x-4">
@@ -628,7 +619,7 @@ Betaalmethode: ${formData.paymentMethod}
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">Nederland</span>
+                      <span className="text-white/80 text-sm font-light">Nederland</span>
                     </label>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -639,7 +630,7 @@ Betaalmethode: ${formData.paymentMethod}
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">Europa</span>
+                      <span className="text-white/80 text-sm font-light">Europa</span>
                     </label>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -650,7 +641,7 @@ Betaalmethode: ${formData.paymentMethod}
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">Buiten Europa</span>
+                      <span className="text-white/80 text-sm font-light">Buiten Europa</span>
                     </label>
                   </div>
                   {errors.country && (
@@ -659,7 +650,7 @@ Betaalmethode: ${formData.paymentMethod}
                 </div>
 
                 <div>
-                  <label className="block text-white/80 text-sm font-medium mb-2">
+                  <label className="block text-white/60 text-sm font-light mb-2">
                     Locatie van de boeking *
                   </label>
                   <div className="flex space-x-4">
@@ -672,7 +663,7 @@ Betaalmethode: ${formData.paymentMethod}
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">Hotel</span>
+                      <span className="text-white/80 text-sm font-light">Hotel</span>
                     </label>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -683,7 +674,7 @@ Betaalmethode: ${formData.paymentMethod}
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">Privé gelegenheid</span>
+                      <span className="text-white/80 text-sm font-light">Privé gelegenheid</span>
                     </label>
                   </div>
                   {errors.locationType && (
@@ -693,7 +684,7 @@ Betaalmethode: ${formData.paymentMethod}
 
                 <div className="grid md:grid-cols-3 gap-6">
                   <div>
-                    <label className="block text-white/80 text-sm font-medium mb-2">
+                    <label className="block text-white/60 text-sm font-light mb-2">
                       Datum van de boeking *
                     </label>
                     <input
@@ -703,9 +694,7 @@ Betaalmethode: ${formData.paymentMethod}
                       onChange={handleInputChange}
                       required
                       min={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 ${
-                        errors.date ? 'border-red-500' : 'border-white/20'
-                      }`}
+                      className={`form-input ${errors.date ? 'error' : ''}`}
                     />
                     <p className="text-white/50 text-xs mt-1">Datumnotatie: DD/MM/JJJJ</p>
                     {errors.date && (
@@ -714,7 +703,7 @@ Betaalmethode: ${formData.paymentMethod}
                   </div>
 
                   <div>
-                    <label className="block text-white/80 text-sm font-medium mb-2">
+                    <label className="block text-white/60 text-sm font-light mb-2">
                       Starttijd boeking *
                     </label>
                     <p className="text-white/60 text-xs mb-2">
@@ -726,9 +715,7 @@ Betaalmethode: ${formData.paymentMethod}
                         value={formData.time}
                         onChange={handleInputChange}
                         required
-                        className={`w-full px-4 py-3 bg-zinc-800 border rounded-lg text-white focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 appearance-none cursor-pointer ${
-                          errors.time ? 'border-red-500' : 'border-white/20'
-                        }`}
+                        className={`form-select ${errors.time ? 'error' : ''}`}
                       >
                         <option value="" className="bg-zinc-800 text-white">Selecteer tijd</option>
                         <option value="00.00" className="bg-zinc-800 text-white">00.00 uur</option>
@@ -768,7 +755,7 @@ Betaalmethode: ${formData.paymentMethod}
                   </div>
 
                   <div>
-                    <label className="block text-white/80 text-sm font-medium mb-2">
+                    <label className="block text-white/60 text-sm font-light mb-2">
                       Duur van de boeking (uren) *
                     </label>
                     <div className="relative">
@@ -777,9 +764,7 @@ Betaalmethode: ${formData.paymentMethod}
                         value={formData.duration}
                         onChange={handleInputChange}
                         required
-                        className={`w-full px-4 py-3 bg-zinc-800 border rounded-lg text-white focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 appearance-none cursor-pointer ${
-                          errors.duration ? 'border-red-500' : 'border-white/20'
-                        }`}
+                        className={`form-select ${errors.duration ? 'error' : ''}`}
                       >
                         <option value="" className="bg-zinc-800 text-white">Selecteer duur</option>
                         <option value="2" className="bg-zinc-800 text-white">2 uur</option>
@@ -822,12 +807,12 @@ Betaalmethode: ${formData.paymentMethod}
 
             {/* Payment */}
             <div>
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
-                <CreditCard className="text-gold-400 mr-3" size={20} />
+              <h3 className="font-serif text-lg font-semibold text-white mb-6 flex items-center">
+                <CreditCard className="text-gold-400 mr-3" size={18} />
                 Betaling
               </h3>
               <div>
-                <label className="block text-white/80 text-sm font-medium mb-3">
+                <label className="block text-white/60 text-sm font-light mb-3">
                   Betaling van de boeking *
                 </label>
                 <div className="space-y-2">
@@ -840,7 +825,7 @@ Betaalmethode: ${formData.paymentMethod}
                       onChange={handleInputChange}
                       className="mr-3 accent-gold-500"
                     />
-                    <span className="text-white">Contant in Euro's</span>
+                    <span className="text-white/80 text-sm font-light">Contant in Euro's</span>
                   </label>
                   <label className="flex items-center cursor-pointer">
                     <input
@@ -851,7 +836,7 @@ Betaalmethode: ${formData.paymentMethod}
                       onChange={handleInputChange}
                       className="mr-3 accent-gold-500"
                     />
-                    <span className="text-white">Bankoverschrijving</span>
+                    <span className="text-white/80 text-sm font-light">Bankoverschrijving</span>
                   </label>
                   <label className="flex items-center cursor-pointer">
                     <input
@@ -862,7 +847,7 @@ Betaalmethode: ${formData.paymentMethod}
                       onChange={handleInputChange}
                       className="mr-3 accent-gold-500"
                     />
-                    <span className="text-white">Betaalverzoek bank</span>
+                    <span className="text-white/80 text-sm font-light">Betaalverzoek bank</span>
                   </label>
                 </div>
                 {errors.paymentMethod && (
@@ -873,7 +858,7 @@ Betaalmethode: ${formData.paymentMethod}
 
 
             {/* Privacy Agreement */}
-            <div className="border-t border-white/10 pt-8">
+            <div className="border-t border-white/[0.06] pt-8">
               <label className="flex items-start space-x-3 cursor-pointer">
                 <input
                   type="checkbox"
@@ -881,9 +866,9 @@ Betaalmethode: ${formData.paymentMethod}
                   checked={formData.privacy}
                   onChange={handleInputChange}
                   required
-                  className="mt-1 w-5 h-5 bg-white/10 border border-white/20 rounded focus:ring-2 focus:ring-gold-400/20 text-gold-500 cursor-pointer accent-gold-500"
+                  className="mt-1 w-5 h-5 bg-white/[0.04] border border-white/[0.1] rounded focus:ring-2 focus:ring-gold-400/15 text-gold-500 cursor-pointer accent-gold-500"
                 />
-                <span className="text-white/80 text-sm leading-relaxed">
+                <span className="text-white/55 text-sm leading-relaxed font-light">
                   Ik ga akkoord met de <a href="#privacy" className="text-gold-400 hover:text-gold-300 underline">privacy voorwaarden</a> en <a href="#terms" className="text-gold-400 hover:text-gold-300 underline">algemene voorwaarden</a>.
                 </span>
               </label>
@@ -898,7 +883,7 @@ Betaalmethode: ${formData.paymentMethod}
                 type="submit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-black font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg flex items-center space-x-3 mx-auto"
+                className="px-12 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-ink-950 font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold-500/25 flex items-center space-x-3 mx-auto"
               >
                 <Mail size={20} />
                 <span>Open Email Client</span>
@@ -915,7 +900,7 @@ Betaalmethode: ${formData.paymentMethod}
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <p className="text-white/60 mb-4">
+          <p className="text-white/45 mb-4 text-sm font-light">
             Liever direct contact?
           </p>
           <motion.a

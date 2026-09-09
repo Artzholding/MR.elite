@@ -17,13 +17,13 @@ const ScrollProgress = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-charcoal-800/50 z-50"
+      className="fixed top-0 left-0 right-0 h-0.5 bg-ink-900/50 z-[60]"
       initial={{ opacity: 0 }}
       animate={{ opacity: scrollProgress > 5 ? 1 : 0 }}
       transition={{ duration: 0.3 }}
     >
       <motion.div
-        className="h-full bg-gradient-to-r from-gold-400 to-gold-600"
+        className="h-full bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600"
         style={{ width: `${scrollProgress}%` }}
         transition={{ duration: 0.1 }}
       />

@@ -6,20 +6,19 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply font-sans antialiased;
-    background: #000000;
+    background: #0c0a09;
     overflow-x: hidden;
   }
 
-  /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-zinc-900;
+    @apply bg-ink-900;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -30,30 +29,27 @@
     @apply bg-gold-500;
   }
 
-  /* Firefox scrollbar */
   * {
     scrollbar-width: thin;
-    scrollbar-color: #DAA520 #27272a;
+    scrollbar-color: #DAA520 #1c1917;
   }
 
-  /* Form elements styling */
   input[type="date"]::-webkit-calendar-picker-indicator,
   input[type="time"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
     cursor: pointer;
   }
 
-  /* Select dropdown styling - FIXED */
   select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     color: white !important;
-    background-color: #27272a !important;
+    background-color: #1c1917 !important;
   }
 
   select option {
-    background-color: #27272a !important;
+    background-color: #1c1917 !important;
     color: white !important;
     padding: 8px 12px;
   }
@@ -64,22 +60,19 @@
   }
 
   select option:hover {
-    background-color: #3f3f46 !important;
+    background-color: #292524 !important;
   }
 
-  /* Focus styles */
   input:focus,
   select:focus,
   textarea:focus {
     outline: none;
   }
 
-  /* Checkbox styling */
   input[type="checkbox"] {
     accent-color: #DAA520;
   }
 
-  /* Prevent blue highlight on mobile */
   * {
     -webkit-tap-highlight-color: transparent;
   }
@@ -87,27 +80,47 @@
 
 @layer components {
   .glass-effect {
-    @apply bg-white/5 backdrop-blur-sm border border-white/10;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/[0.08];
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .glass-effect:hover {
-    @apply bg-white/10 border-white/20;
+    @apply bg-white/[0.06] border-white/[0.15];
   }
 
-  /* Custom button styles */
+  .glass-card {
+    @apply glass-effect rounded-2xl;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(218,165,32,0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .glass-card:hover::before {
+    opacity: 1;
+  }
+
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-black font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg;
+    @apply px-7 py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 text-ink-950 font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold-500/25;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 border border-gold-400 text-gold-400 font-semibold rounded-full hover:bg-gold-400 hover:text-black transition-all duration-300;
+    @apply px-7 py-3.5 border border-gold-400/60 text-gold-400 font-semibold rounded-full hover:bg-gold-400 hover:text-ink-950 hover:border-gold-400 transition-all duration-300;
   }
 
-  /* Form input styles */
   .form-input {
-    @apply w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300;
+    @apply w-full px-4 py-3 bg-white/[0.04] border border-white/[0.1] rounded-xl text-white placeholder-white/40 focus:border-gold-400/60 focus:ring-2 focus:ring-gold-400/15 transition-all duration-300;
   }
 
   .form-input.error {
@@ -115,19 +128,52 @@
   }
 
   .form-select {
-    @apply form-input appearance-none cursor-pointer bg-zinc-800;
+    @apply form-input appearance-none cursor-pointer bg-ink-800;
+  }
+
+  .section-label {
+    @apply text-gold-400 text-xs tracking-[0.3em] uppercase font-medium;
+  }
+
+  .section-title {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-white;
+  }
+
+  .divider-gold {
+    @apply w-20 h-px bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, #DAA520 0%, #FFD700 100%);
+    background: linear-gradient(135deg, #f5a623 0%, #DAA520 50%, #b8860b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Animation utilities */
+  .text-gradient-shimmer {
+    background: linear-gradient(90deg, #DAA520, #FFD700, #DAA520);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  .bg-grain {
+    position: relative;
+  }
+
+  .bg-grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
   .animate-fade-in {
     animation: fadeIn 0.8s ease-out;
   }
@@ -144,7 +190,6 @@
     animation: glow 2s ease-in-out infinite alternate;
   }
 
-  /* Responsive text utilities */
   .text-responsive-xl {
     @apply text-2xl md:text-3xl lg:text-4xl;
   }
@@ -158,100 +203,73 @@
   }
 }
 
-/* Keyframes */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
 @keyframes glow {
-  from {
-    box-shadow: 0 0 20px rgba(218, 165, 32, 0.3);
-  }
-  to {
-    box-shadow: 0 0 30px rgba(218, 165, 32, 0.6);
-  }
+  from { box-shadow: 0 0 20px rgba(218, 165, 32, 0.3); }
+  to { box-shadow: 0 0 30px rgba(218, 165, 32, 0.6); }
 }
 
-/* Loading animation */
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 .animate-spin {
   animation: spin 1s linear infinite;
 }
 
-/* Smooth transitions for all interactive elements */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 * {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-/* Prevent horizontal scroll */
 html, body {
   overflow-x: hidden;
 }
 
-/* Ensure proper stacking context */
 .fixed {
   z-index: 1000;
 }
 
-/* Improve button accessibility */
 button:focus-visible,
 a:focus-visible {
   outline: 2px solid #DAA520;
   outline-offset: 2px;
 }
 
-/* Improve form accessibility */
 input:invalid {
   box-shadow: none;
 }
 
-/* Mobile optimizations */
 @media (max-width: 768px) {
   .glass-effect {
-    @apply bg-white/10 backdrop-blur-md;
+    @apply bg-white/[0.05] backdrop-blur-md;
   }
-  
-  /* Improve touch targets */
+
   button, a, input, select, textarea {
     min-height: 44px;
   }
 }
 
-/* Fix for select dropdown on all browsers */
 select {
   background-image: none !important;
   color: white !important;
@@ -261,28 +279,26 @@ select:focus {
   color: white !important;
 }
 
-/* Webkit specific fixes */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   select {
-    background-color: #27272a !important;
+    background-color: #1c1917 !important;
     color: white !important;
   }
-  
+
   select option {
-    background-color: #27272a !important;
+    background-color: #1c1917 !important;
     color: white !important;
   }
 }
 
-/* Firefox specific fixes */
 @-moz-document url-prefix() {
   select {
-    background-color: #27272a !important;
+    background-color: #1c1917 !important;
     color: white !important;
   }
-  
+
   select option {
-    background-color: #27272a !important;
+    background-color: #1c1917 !important;
     color: white !important;
   }
 }

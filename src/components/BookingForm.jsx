@@ -215,28 +215,29 @@ const BookingForm = () => {
 
   if (isSubmitted) {
     return (
-      <section id="booking" className="py-20 bg-gradient-to-br from-zinc-900 to-black">
-        <div className="max-w-2xl mx-auto px-4 text-center">
+      <section id="booking" className="py-24 md:py-32 bg-ink-950 bg-grain relative overflow-hidden">
+        <div className="absolute top-1/3 left-0 w-72 h-72 bg-gold-600/[0.06] rounded-full blur-[120px]" />
+        <div className="max-w-2xl mx-auto px-4 text-center relative z-10">
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="glass-effect rounded-2xl p-12"
+            className="glass-card p-12"
           >
-            <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="text-white" size={40} />
+            <div className="w-16 h-16 bg-gradient-to-br from-green-400/20 to-green-600/10 border border-green-400/30 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="text-green-400" size={32} />
             </div>
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="font-serif text-3xl font-semibold text-white mb-4">
               {t('bookingConfirmationTitle')}
             </h2>
-            <p className="text-white/80 mb-8 leading-relaxed">
+            <p className="text-white/60 mb-8 leading-relaxed font-light">
               {t('bookingConfirmationMessage')}
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={resetForm}
-              className="px-8 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-black font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300"
+              className="px-8 py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 text-ink-950 font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold-500/25"
             >
               {t('newBooking')}
             </motion.button>
@@ -247,8 +248,9 @@ const BookingForm = () => {
   }
 
   return (
-    <section id="booking" className="py-20 bg-gradient-to-br from-zinc-900 to-black">
-      <div className="max-w-4xl mx-auto px-4">
+    <section id="booking" className="py-24 md:py-32 bg-ink-950 bg-grain relative overflow-hidden">
+      <div className="absolute top-1/3 right-0 w-80 h-80 bg-gold-600/[0.05] rounded-full blur-[120px]" />
+      <div className="max-w-4xl mx-auto px-4 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -257,21 +259,22 @@ const BookingForm = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <span className="section-label mb-6 block">Booking</span>
+          <h2 className="section-title mb-6">
             {t('bookingTitle')}
           </h2>
-          <p className="text-xl text-gold-400 mb-8">
+          <p className="text-lg text-white/50 font-light mb-8">
             {t('bookingSubtitle')}
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto mb-8" />
+          <div className="divider-gold mb-8" />
           
           {/* Notice */}
-          <div className="glass-effect rounded-lg p-4 max-w-2xl mx-auto">
+          <div className="glass-card p-5 max-w-2xl mx-auto">
             <div className="flex items-center justify-center space-x-2 text-gold-400 mb-2">
-              <Shield size={20} />
-              <span className="font-semibold">{t('importantNotice')}</span>
+              <Shield size={18} />
+              <span className="font-medium text-sm tracking-wide">{t('importantNotice')}</span>
             </div>
-            <p className="text-white/80 text-sm">
+            <p className="text-white/55 text-sm font-light">
               {t('bookingNoticeText')}
             </p>
           </div>
@@ -283,13 +286,13 @@ const BookingForm = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="glass-effect rounded-2xl p-8 md:p-12"
+          className="glass-card p-8 md:p-12"
         >
           <form onSubmit={handleSubmit} className="space-y-8" noValidate>
             {/* Booking History */}
             <div>
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
-                <Shield className="text-gold-400 mr-3" size={20} />
+              <h3 className="font-serif text-lg font-semibold text-white mb-6 flex items-center">
+                <Shield className="text-gold-400 mr-3" size={18} />
                 {t('bookingHistory')}
               </h3>
               <div className="space-y-4">
@@ -308,7 +311,7 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">{t('yes')}</span>
+                      <span className="text-white/80 text-sm font-light">{t('yes')}</span>
                     </label>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -319,7 +322,7 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">{t('no')}</span>
+                      <span className="text-white/80 text-sm font-light">{t('no')}</span>
                     </label>
                   </div>
                   {errors.previousBooking && (
@@ -341,7 +344,7 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">{t('male')}</span>
+                      <span className="text-white/80 text-sm font-light">{t('male')}</span>
                     </label>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -352,7 +355,7 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">{t('female')}</span>
+                      <span className="text-white/80 text-sm font-light">{t('female')}</span>
                     </label>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -363,7 +366,7 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">{t('couple')}</span>
+                      <span className="text-white/80 text-sm font-light">{t('couple')}</span>
                     </label>
                   </div>
                   {errors.clientType && (
@@ -375,8 +378,8 @@ const BookingForm = () => {
 
             {/* Personal Information */}
             <div>
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
-                <User className="text-gold-400 mr-3" size={20} />
+              <h3 className="font-serif text-lg font-semibold text-white mb-6 flex items-center">
+                <User className="text-gold-400 mr-3" size={18} />
                 {t('personalInformation')}
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
@@ -390,9 +393,7 @@ const BookingForm = () => {
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 ${
-                      errors.firstName ? 'border-red-500' : 'border-white/20'
-                    }`}
+                    className={`form-input ${errors.firstName ? 'error' : ''}`}
                     placeholder={t('firstNamePlaceholder')}
                   />
                   {errors.firstName && (
@@ -409,9 +410,7 @@ const BookingForm = () => {
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 ${
-                      errors.lastName ? 'border-red-500' : 'border-white/20'
-                    }`}
+                    className={`form-input ${errors.lastName ? 'error' : ''}`}
                     placeholder={t('lastNamePlaceholder')}
                   />
                   {errors.lastName && (
@@ -423,8 +422,8 @@ const BookingForm = () => {
 
             {/* Contact Information */}
             <div>
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
-                <Mail className="text-gold-400 mr-3" size={20} />
+              <h3 className="font-serif text-lg font-semibold text-white mb-6 flex items-center">
+                <Mail className="text-gold-400 mr-3" size={18} />
                 {t('contactInformation')}
               </h3>
               <div className="space-y-6">
@@ -438,9 +437,7 @@ const BookingForm = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 ${
-                      errors.email ? 'border-red-500' : 'border-white/20'
-                    }`}
+                    className={`form-input ${errors.email ? 'error' : ''}`}
                     placeholder={t('emailPlaceholder')}
                   />
                   {errors.email && (
@@ -457,9 +454,7 @@ const BookingForm = () => {
                     value={formData.confirmEmail}
                     onChange={handleInputChange}
                     required
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 ${
-                      errors.confirmEmail ? 'border-red-500' : 'border-white/20'
-                    }`}
+                    className={`form-input ${errors.confirmEmail ? 'error' : ''}`}
                     placeholder={t('confirmEmailPlaceholder')}
                   />
                   {errors.confirmEmail && (
@@ -476,9 +471,7 @@ const BookingForm = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 ${
-                      errors.phone ? 'border-red-500' : 'border-white/20'
-                    }`}
+                    className={`form-input ${errors.phone ? 'error' : ''}`}
                     placeholder={t('phonePlaceholder')}
                   />
                   {errors.phone && (
@@ -490,8 +483,8 @@ const BookingForm = () => {
 
             {/* Service Selection */}
             <div>
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
-                <Heart className="text-gold-400 mr-3" size={20} />
+              <h3 className="font-serif text-lg font-semibold text-white mb-6 flex items-center">
+                <Heart className="text-gold-400 mr-3" size={18} />
                 {t('serviceSelection')}
               </h3>
               <div className="space-y-6">
@@ -517,7 +510,7 @@ const BookingForm = () => {
                           onChange={handleInputChange}
                           className="mr-3 accent-gold-500"
                         />
-                        <span className="text-white">{option}</span>
+                        <span className="text-white/80 text-sm font-light">{option}</span>
                       </label>
                     ))}
                   </div>
@@ -546,7 +539,7 @@ const BookingForm = () => {
                           onChange={handleInputChange}
                           className="mr-3 accent-gold-500"
                         />
-                        <span className="text-white">{option}</span>
+                        <span className="text-white/80 text-sm font-light">{option}</span>
                       </label>
                     ))}
                   </div>
@@ -562,9 +555,7 @@ const BookingForm = () => {
                       value={formData.companion}
                       onChange={handleInputChange}
                       required
-                      className={`w-full px-4 py-3 bg-zinc-800 border rounded-lg text-white focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 appearance-none cursor-pointer ${
-                        errors.companion ? 'border-red-500' : 'border-white/20'
-                      }`}
+                      className={`form-select ${errors.companion ? 'error' : ''}`}
                     >
                       <option value="" className="bg-zinc-800 text-white">{t('selectCompanion')}</option>
                       <option value="Adam" className="bg-zinc-800 text-white">Adam</option>
@@ -601,7 +592,7 @@ const BookingForm = () => {
                           onChange={() => handleExtraServiceChange(service.name)}
                           className="mr-3 accent-gold-500"
                         />
-                        <span className="text-white">{service.name} {service.price}</span>
+                        <span className="text-white/80 text-sm font-light">{service.name} {service.price}</span>
                       </label>
                     ))}
                   </div>
@@ -611,8 +602,8 @@ const BookingForm = () => {
 
             {/* Location & Timing */}
             <div>
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
-                <MapPin className="text-gold-400 mr-3" size={20} />
+              <h3 className="font-serif text-lg font-semibold text-white mb-6 flex items-center">
+                <MapPin className="text-gold-400 mr-3" size={18} />
                 {t('locationTiming')}
               </h3>
               <div className="space-y-6">
@@ -630,7 +621,7 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">{t('netherlands')}</span>
+                      <span className="text-white/80 text-sm font-light">{t('netherlands')}</span>
                     </label>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -641,7 +632,7 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">{t('europe')}</span>
+                      <span className="text-white/80 text-sm font-light">{t('europe')}</span>
                     </label>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -652,7 +643,7 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">{t('outsideEurope')}</span>
+                      <span className="text-white/80 text-sm font-light">{t('outsideEurope')}</span>
                     </label>
                   </div>
                   {errors.country && (
@@ -674,7 +665,7 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">{t('hotel')}</span>
+                      <span className="text-white/80 text-sm font-light">{t('hotel')}</span>
                     </label>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -685,7 +676,7 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                         className="mr-2 accent-gold-500"
                       />
-                      <span className="text-white">{t('privateVenue')}</span>
+                      <span className="text-white/80 text-sm font-light">{t('privateVenue')}</span>
                     </label>
                   </div>
                   {errors.locationType && (
@@ -705,9 +696,7 @@ const BookingForm = () => {
                       onChange={handleInputChange}
                       required
                       min={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 ${
-                        errors.date ? 'border-red-500' : 'border-white/20'
-                      }`}
+                      className={`form-input ${errors.date ? 'error' : ''}`}
                     />
                     <p className="text-white/50 text-xs mt-1">{t('dateNote')}</p>
                     {errors.date && (
@@ -728,9 +717,7 @@ const BookingForm = () => {
                         value={formData.time}
                         onChange={handleInputChange}
                         required
-                        className={`w-full px-4 py-3 bg-zinc-800 border rounded-lg text-white focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 appearance-none cursor-pointer ${
-                          errors.time ? 'border-red-500' : 'border-white/20'
-                        }`}
+                        className={`form-select ${errors.time ? 'error' : ''}`}
                       >
                         <option value="" className="bg-zinc-800 text-white">{t('selectTime')}</option>
                         <option value="00.00" className="bg-zinc-800 text-white">00.00 uur</option>
@@ -779,9 +766,7 @@ const BookingForm = () => {
                         value={formData.duration}
                         onChange={handleInputChange}
                         required
-                        className={`w-full px-4 py-3 bg-zinc-800 border rounded-lg text-white focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 appearance-none cursor-pointer ${
-                          errors.duration ? 'border-red-500' : 'border-white/20'
-                        }`}
+                        className={`form-select ${errors.duration ? 'error' : ''}`}
                       >
                         <option value="" className="bg-zinc-800 text-white">{t('selectDuration')}</option>
                         <option value="2" className="bg-zinc-800 text-white">2 uur</option>
@@ -824,8 +809,8 @@ const BookingForm = () => {
 
             {/* Payment */}
             <div>
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
-                <CreditCard className="text-gold-400 mr-3" size={20} />
+              <h3 className="font-serif text-lg font-semibold text-white mb-6 flex items-center">
+                <CreditCard className="text-gold-400 mr-3" size={18} />
                 {t('paymentSection')}
               </h3>
               <div>
@@ -842,7 +827,7 @@ const BookingForm = () => {
                       onChange={handleInputChange}
                       className="mr-3 accent-gold-500"
                     />
-                    <span className="text-white">{t('cashEuros')}</span>
+                    <span className="text-white/80 text-sm font-light">{t('cashEuros')}</span>
                   </label>
                   <label className="flex items-center cursor-pointer">
                     <input
@@ -853,7 +838,7 @@ const BookingForm = () => {
                       onChange={handleInputChange}
                       className="mr-3 accent-gold-500"
                     />
-                    <span className="text-white">{t('bankTransfer')}</span>
+                    <span className="text-white/80 text-sm font-light">{t('bankTransfer')}</span>
                   </label>
                   <label className="flex items-center cursor-pointer">
                     <input
@@ -864,7 +849,7 @@ const BookingForm = () => {
                       onChange={handleInputChange}
                       className="mr-3 accent-gold-500"
                     />
-                    <span className="text-white">{t('paymentRequest')}</span>
+                    <span className="text-white/80 text-sm font-light">{t('paymentRequest')}</span>
                   </label>
                 </div>
                 {errors.paymentMethod && (
@@ -874,7 +859,7 @@ const BookingForm = () => {
             </div>
 
             {/* Privacy Agreement */}
-            <div className="border-t border-white/10 pt-8">
+            <div className="border-t border-white/[0.06] pt-8">
               <label className="flex items-start space-x-3 cursor-pointer">
                 <input
                   type="checkbox"
@@ -882,9 +867,9 @@ const BookingForm = () => {
                   checked={formData.privacy}
                   onChange={handleInputChange}
                   required
-                  className="mt-1 w-5 h-5 bg-white/10 border border-white/20 rounded focus:ring-2 focus:ring-gold-400/20 text-gold-500 cursor-pointer accent-gold-500"
+                  className="mt-1 w-5 h-5 bg-white/[0.04] border border-white/[0.1] rounded focus:ring-2 focus:ring-gold-400/15 text-gold-500 cursor-pointer accent-gold-500"
                 />
-                <span className="text-white/80 text-sm leading-relaxed">
+                <span className="text-white/55 text-sm leading-relaxed font-light">
                   {t('privacyAgreementText')} <a href="#privacy" className="text-gold-400 hover:text-gold-300 underline">{t('privacyTerms')}</a> {t('and')} <a href="#terms" className="text-gold-400 hover:text-gold-300 underline">{t('generalTerms')}</a>.
                 </span>
               </label>
@@ -900,13 +885,13 @@ const BookingForm = () => {
                 disabled={isSubmitting}
                 whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-                className={`px-12 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-black font-semibold rounded-full transition-all duration-300 shadow-lg flex items-center space-x-3 mx-auto ${
+                className={`px-12 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-ink-950 font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-gold-500/25 flex items-center space-x-3 mx-auto ${
                   isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:from-gold-400 hover:to-gold-500'
                 }`}
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+                    <div className="w-5 h-5 border-2 border-ink-950/30 border-t-ink-950 rounded-full animate-spin" />
                     <span>{t('submitting')}</span>
                   </>
                 ) : (
@@ -928,7 +913,7 @@ const BookingForm = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <p className="text-white/60 mb-4">
+          <p className="text-white/45 mb-4 text-sm font-light">
             {t('preferDirectContact')}
           </p>
           <motion.a

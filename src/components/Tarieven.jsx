@@ -39,7 +39,7 @@ const Tarieven = () => {
   };
 
   return (
-    <section id="tarieven" className="py-20 bg-gradient-to-br from-zinc-900 to-black">
+    <section id="tarieven" className="py-24 md:py-32 bg-ink-900 bg-grain relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -49,13 +49,14 @@ const Tarieven = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <span className="section-label mb-6 block">{t('rates')}</span>
+          <h1 className="section-title mb-6">
             {t('tarievenTitle')}
           </h1>
-          <p className="text-xl text-gold-400 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg text-white/50 max-w-2xl mx-auto font-light mb-8">
             {t('tarievenSubtitle')}
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto" />
+          <div className="divider-gold" />
         </motion.div>
 
         {/* Important Notice */}
@@ -64,10 +65,10 @@ const Tarieven = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="glass-effect rounded-2xl p-6 mb-12"
+          className="glass-card p-6 mb-12"
         >
           <div className="flex items-start space-x-4">
-            <div className="w-12 h-12 bg-gold-600/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 bg-gold-500/10 border border-gold-500/15 rounded-xl flex items-center justify-center flex-shrink-0">
               <Info className="text-gold-400" size={24} />
             </div>
             <div>
@@ -75,8 +76,8 @@ const Tarieven = () => {
               <p className="text-white/80 leading-relaxed mb-4">
                 {t('tarievenInfoText')}
               </p>
-              <div className="bg-gold-600/10 border border-gold-600/20 rounded-lg p-4">
-                <p className="text-gold-400 font-semibold text-sm">
+              <div className="bg-gold-600/[0.08] border border-gold-500/15 rounded-xl p-4">
+                <p className="text-gold-400 font-medium text-sm">
                   ✨ {t('tarievenDiscount')}
                 </p>
               </div>
@@ -90,16 +91,16 @@ const Tarieven = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="glass-effect rounded-2xl overflow-hidden mb-12"
+          className="glass-card overflow-hidden mb-12"
         >
           <div className="bg-gradient-to-r from-gold-500 to-gold-600 p-6">
-            <h2 className="text-2xl font-bold text-black text-center">{t('hourlyRates')}</h2>
+            <h2 className="font-serif text-2xl font-semibold text-ink-950 text-center">{t('hourlyRates')}</h2>
           </div>
           
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-white/10">
+                <tr className="border-b border-white/[0.08]">
                   <th className="text-left p-4 text-white font-semibold">
                     <div className="flex items-center space-x-2">
                       <Clock size={18} className="text-gold-400" />
@@ -134,7 +135,7 @@ const Tarieven = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.02 }}
                     viewport={{ once: true }}
-                    className="border-b border-white/5 hover:bg-white/5 transition-colors"
+                    className="border-b border-white/[0.04] hover:bg-white/[0.03] transition-colors"
                   >
                     <td className="p-4">
                       <span className="text-white font-medium">{row.hours} {t('hourUnit')}</span>
@@ -163,8 +164,8 @@ const Tarieven = () => {
           viewport={{ once: true }}
           className="grid md:grid-cols-2 gap-6 mb-12"
         >
-          <div className="glass-effect rounded-2xl p-6">
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+          <div className="glass-card p-6">
+            <h3 className="font-serif text-xl font-semibold text-white mb-4 flex items-center">
               <Euro className="text-gold-400 mr-3" size={20} />
               {t('extraDay')}
             </h3>
@@ -184,8 +185,8 @@ const Tarieven = () => {
             </div>
           </div>
 
-          <div className="glass-effect rounded-2xl p-6">
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+          <div className="glass-card p-6">
+            <h3 className="font-serif text-xl font-semibold text-white mb-4 flex items-center">
               <Clock className="text-gold-400 mr-3" size={20} />
               {t('extraHour')}
             </h3>
@@ -214,11 +215,11 @@ const Tarieven = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="glass-effect rounded-xl p-6 max-w-2xl mx-auto">
-            <p className="text-white/70 text-sm mb-4">
+          <div className="glass-card p-6 max-w-2xl mx-auto">
+            <p className="text-white/45 text-xs mb-4 font-light">
               *{t('tarievenNote')}
             </p>
-            <p className="text-gold-400 font-semibold">
+            <p className="text-gold-400/90 font-medium text-sm">
               {t('tarievenFooter')}
             </p>
             <div className="mt-6">
@@ -226,7 +227,7 @@ const Tarieven = () => {
                 href="tel:+31616335723"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-black font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300"
+                className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-ink-950 font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold-500/25"
               >
                 <span>{t('contactUs')}</span>
               </motion.a>

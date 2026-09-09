@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-ink-950 text-white bg-grain">
       <Header />
       
       <div className="pt-20 pb-20">
@@ -36,13 +36,13 @@ const PrivacyPolicy = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl font-semibold text-white mb-6">
               Privacy Beleid MrElite 2025
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto mb-8" />
+            <div className="divider-gold mb-8" />
             
             {/* Introduction */}
-            <div className="glass-effect rounded-2xl p-6 max-w-3xl mx-auto mb-12">
+            <div className="glass-card p-6 max-w-3xl mx-auto mb-12">
               <div className="flex items-center justify-center space-x-2 text-gold-400 mb-4">
                 <Shield size={24} />
                 <span className="font-semibold">Privacy & Discretie</span>
@@ -62,7 +62,7 @@ const PrivacyPolicy = () => {
           >
             {/* Wanneer past MrElite het privacy beleid toe? */}
             <section>
-              <h2 className="text-2xl font-bold text-gold-400 mb-6 flex items-center">
+              <h2 className="font-serif text-2xl font-semibold text-gold-400 mb-6 flex items-center">
                 <FileText className="mr-3" size={24} />
                 Wanneer past MrElite het privacy beleid toe?
               </h2>
@@ -75,7 +75,7 @@ const PrivacyPolicy = () => {
 
             {/* Welke informatie verzamelt MrElite? */}
             <section>
-              <h2 className="text-2xl font-bold text-gold-400 mb-6 flex items-center">
+              <h2 className="font-serif text-2xl font-semibold text-gold-400 mb-6 flex items-center">
                 <Eye className="mr-3" size={24} />
                 Welke informatie verzamelt MrElite?
               </h2>
@@ -84,8 +84,8 @@ const PrivacyPolicy = () => {
                   Als u contact met ons opneemt dan levert u tijdens dit contactmoment zelf informatie bij ons aan. Tevens maken wij gebruik van openbare bronnen en verifiëren wij de door u verstrekte informatie. Het is niet toegestaan om onjuiste informatie aan ons te verstrekken. Indien u onjuiste of onvolledige informatie aan ons verstrekt houden wij ons het recht voor om een boeking te annuleren of deze niet met u overeen te komen.
                 </p>
                 
-                <div className="bg-gold-600/10 border border-gold-600/20 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-white mb-4">Bij gehonoreerde boekingsaanvraag verzamelen wij:</h3>
+                <div className="bg-gold-600/[0.08] border border-gold-500/15 rounded-xl p-6">
+                  <h3 className="text-base font-medium text-white mb-4 tracking-wide">Bij gehonoreerde boekingsaanvraag verzamelen wij:</h3>
                   <ul className="space-y-2">
                     <li className="flex items-start space-x-3">
                       <CheckCircle className="text-gold-400 mt-1 flex-shrink-0" size={16} />
@@ -110,7 +110,7 @@ const PrivacyPolicy = () => {
                   </ul>
                 </div>
 
-                <div className="bg-white/5 rounded-lg p-4">
+                <div className="bg-white/[0.03] rounded-xl p-4 border border-white/[0.06]">
                   <p className="text-gold-400 font-semibold">
                     Indien uw boekingsaanvraag niet gehonoreerd kan worden door ons, en aldus niet resulteert in een daadwerkelijke boeking, bewaren wij alleen uw e-mailadres en andere correspondentie.
                   </p>
@@ -120,7 +120,7 @@ const PrivacyPolicy = () => {
 
             {/* Voor welke doeleinden verzamelen en verwerken wij persoonlijke gegevens? */}
             <section>
-              <h2 className="text-2xl font-bold text-gold-400 mb-6 flex items-center">
+              <h2 className="font-serif text-2xl font-semibold text-gold-400 mb-6 flex items-center">
                 <Users className="mr-3" size={24} />
                 Voor welke doeleinden verzamelen en verwerken wij persoonlijke gegevens?
               </h2>
@@ -150,7 +150,7 @@ const PrivacyPolicy = () => {
                   </li>
                 </ul>
 
-                <div className="bg-gold-600/10 border border-gold-600/20 rounded-lg p-6">
+                <div className="bg-gold-600/[0.08] border border-gold-500/15 rounded-xl p-6">
                   <p className="text-gold-400 font-semibold mb-3">Belangrijke principes:</p>
                   <p>
                     Alle persoonlijke informatie die door ons verzameld en verwerkt wordt, wordt nimmer verwerkt of verzameld voor andere doeleinden dan het naar beste kunnen verzorgen en uitvoeren van onze dienstverlening.
@@ -164,7 +164,7 @@ const PrivacyPolicy = () => {
 
             {/* Hoe lang bewaart MrElite uw gegevens? */}
             <section>
-              <h2 className="text-2xl font-bold text-gold-400 mb-6 flex items-center">
+              <h2 className="font-serif text-2xl font-semibold text-gold-400 mb-6 flex items-center">
                 <Lock className="mr-3" size={24} />
                 Hoe lang bewaart MrElite uw gegevens?
               </h2>
@@ -173,7 +173,7 @@ const PrivacyPolicy = () => {
                   Wij bewaren uw persoonlijke informatie gedurende de periode dat wij deze nodig hebben voor de doelstellingen beschreven in de bovenstaande alinea. De Nederlandse wetgeving verplicht ons bovendien om dergelijke informatie minimaal 7 jaar te bewaren. Nochtans worden uw gegevens na 3 jaar geanonimiseerd.
                 </p>
                 
-                <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-4">
+                <div className="bg-red-900/20 border border-red-500/25 rounded-xl p-4">
                   <p className="text-red-300">
                     <strong>Uitzondering:</strong> Indien in het verleden sprake is geweest van ongewenst gedrag gericht aan onze onderneming of gericht aan een of meerdere van onze high-class gigolo's, kunnen wij uw gegevens langer bewaren dan de wettelijke bewaartermijn. Dit doen wij om onze onderneming te beschermen.
                   </p>
@@ -195,7 +195,7 @@ const PrivacyPolicy = () => {
 
             {/* Hoe beschermt MrElite uw persoonsgegevens? */}
             <section>
-              <h2 className="text-2xl font-bold text-gold-400 mb-6 flex items-center">
+              <h2 className="font-serif text-2xl font-semibold text-gold-400 mb-6 flex items-center">
                 <Shield className="mr-3" size={24} />
                 Hoe beschermt MrElite uw persoonsgegevens?
               </h2>
@@ -204,7 +204,7 @@ const PrivacyPolicy = () => {
                   Voor zover dat van ons gevergd kan worden zullen wij ons te allen tijde inspannen om naar alle redelijkheid en billijkheid uw persoonsgegevens en aanverwante informatie te beschermen. Wij hechten veel waarde aan discretie en privacy en baseren ons beleid dan ook op deze kernwaarden.
                 </p>
                 
-                <div className="bg-white/5 rounded-lg p-4">
+                <div className="bg-white/[0.03] rounded-xl p-4 border border-white/[0.06]">
                   <p>
                     Wij maken net als vele andere websites gebruik van cookies. Dit is nodig voor een optimale belevening van onze website. Helaas is het niet mogelijk om gegevensoverdracht of opslag via internet met een 100% veiligheid garantie te verzekeren.
                   </p>
@@ -240,7 +240,7 @@ const PrivacyPolicy = () => {
             </section>
 
             {/* Contact Information */}
-            <section className="border-t border-white/10 pt-8">
+            <section className="border-t border-white/[0.06] pt-8">
               <h2 className="text-2xl font-bold text-gold-400 mb-6">
                 Contact & Vragen
               </h2>
@@ -257,8 +257,8 @@ const PrivacyPolicy = () => {
             </section>
 
             {/* Last Updated */}
-            <div className="text-center pt-8 border-t border-white/10">
-              <p className="text-white/50 text-sm">
+            <div className="text-center pt-8 border-t border-white/[0.06]">
+              <p className="text-white/40 text-xs tracking-wide">
                 Laatst bijgewerkt: Januari 2025
               </p>
             </div>

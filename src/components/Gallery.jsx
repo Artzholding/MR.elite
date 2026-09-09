@@ -63,47 +63,53 @@ const Gallery = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-charcoal-800 to-charcoal-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 md:py-32 bg-ink-950 bg-grain relative overflow-hidden">
+      <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-gold-600/[0.05] rounded-full blur-[120px]" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
+          <span className="section-label mb-6 block">Gallery</span>
+          <h2 className="section-title mb-6">
             {t('galleryTitle')}
           </h2>
-          <p className="text-xl text-gold-400 mb-8">
+          <p className="text-lg text-white/50 font-light mb-8">
             {t('gallerySubtitle')}
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto" />
+          <div className="divider-gold" />
         </motion.div>
 
         {/* Gallery Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {images.map((image, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.08 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -8 }}
               className="group cursor-pointer"
               onClick={() => openLightbox(image, index)}
             >
-              <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
+              <div className="relative overflow-hidden rounded-2xl aspect-[4/3] border border-white/[0.06]">
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="px-3 py-1 bg-gold-600 text-white text-sm rounded-full">
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-ink-950/10 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+                  <span className="text-white/90 text-sm font-medium tracking-wide opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-400">
+                    {image.alt}
+                  </span>
+                  <span className="px-3 py-1 bg-gold-500/20 backdrop-blur-md border border-gold-400/20 text-gold-300 text-[11px] rounded-full tracking-wide uppercase opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-400 delay-75">
                     {image.category}
                   </span>
                 </div>
@@ -119,46 +125,43 @@ const Gallery = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+              className="fixed inset-0 bg-ink-950/95 backdrop-blur-md z-50 flex items-center justify-center p-4"
               onClick={closeLightbox}
             >
               <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
+                initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
+                exit={{ scale: 0.9, opacity: 0 }}
                 className="relative max-w-4xl max-h-[90vh]"
                 onClick={(e) => e.stopPropagation()}
               >
                 <img
                   src={selectedImage.src}
                   alt={selectedImage.alt}
-                  className="w-full h-full object-contain rounded-lg"
+                  className="w-full h-full object-contain rounded-xl"
                 />
-                
-                {/* Close Button */}
+
                 <button
                   onClick={closeLightbox}
-                  className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+                  className="absolute top-4 right-4 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-gold-500 hover:text-ink-950 transition-colors"
                 >
                   <X size={20} />
                 </button>
 
-                {/* Navigation */}
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-gold-500 hover:text-ink-950 transition-colors"
                 >
                   <ChevronLeft size={24} />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-gold-500 hover:text-ink-950 transition-colors"
                 >
                   <ChevronRight size={24} />
                 </button>
 
-                {/* Image Counter */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white text-sm">
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-white/90 text-sm tracking-wide">
                   {currentIndex + 1} / {images.length}
                 </div>
               </motion.div>

@@ -38,44 +38,47 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-black">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="contact" className="py-24 md:py-32 bg-ink-950 bg-grain relative overflow-hidden">
+      <div className="absolute top-1/3 left-0 w-80 h-80 bg-gold-600/[0.06] rounded-full blur-[120px]" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <span className="section-label mb-6 block">{t('contactTitle').split(' ')[0]}</span>
+          <h2 className="section-title mb-6">
             {t('contactTitle')}
           </h2>
-          <p className="text-xl text-gold-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-white/50 max-w-2xl mx-auto font-light mb-8">
             {t('contactDescription')}
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto" />
+          <div className="divider-gold" />
         </motion.div>
 
         {/* Contact Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
           {contactInfo.map((info, index) => {
             const IconComponent = info.icon;
             const content = (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                className="glass-effect rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300 group h-full"
+                className="glass-card p-6 text-center group h-full"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-gold-500 to-gold-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <IconComponent className="text-black" size={24} />
+                <div className="w-13 h-13 p-3 bg-gold-500/10 border border-gold-500/15 rounded-xl flex items-center justify-center mx-auto mb-5 group-hover:bg-gold-500/20 group-hover:border-gold-400/30 transition-all duration-300">
+                  <IconComponent className="text-gold-400" size={22} />
                 </div>
-                <h3 className="text-white font-semibold mb-2">{info.title}</h3>
-                <p className="text-gold-400 font-medium mb-2">{info.value}</p>
-                <p className="text-white/60 text-sm">{info.description}</p>
+                <h3 className="text-white font-medium text-sm mb-2 tracking-wide">{info.title}</h3>
+                <p className="text-gold-400/90 font-medium mb-2 text-sm">{info.value}</p>
+                <p className="text-white/40 text-xs font-light leading-relaxed">{info.description}</p>
               </motion.div>
             );
 
@@ -99,30 +102,30 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="glass-effect rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">
+          <div className="glass-card p-8 md:p-12 max-w-2xl mx-auto">
+            <h3 className="font-serif text-2xl md:text-3xl font-semibold text-white mb-4">
               {t('contactCtaTitle')}
             </h3>
-            <p className="text-white/70 mb-6 leading-relaxed">
+            <p className="text-white/55 mb-8 leading-relaxed font-light">
               {t('contactCtaText')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
                 href={`tel:${t('phone')}`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-black font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                className="inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 text-ink-950 font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold-500/30"
               >
-                <Phone size={18} />
+                <Phone size={17} />
                 <span>{t('contactNow')}</span>
               </motion.a>
               <motion.a
                 href={`mailto:${t('email')}`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center space-x-2 px-6 py-3 border border-gold-400 text-gold-400 font-semibold rounded-full hover:bg-gold-400 hover:text-black transition-all duration-300"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                className="inline-flex items-center justify-center space-x-2 px-7 py-3.5 border border-gold-400/50 text-gold-400 font-semibold rounded-full hover:bg-gold-400 hover:text-ink-950 hover:border-gold-400 transition-all duration-300"
               >
-                <Mail size={18} />
+                <Mail size={17} />
                 <span>{t('sendEmail')}</span>
               </motion.a>
             </div>

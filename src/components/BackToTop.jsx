@@ -28,10 +28,10 @@ const BackToTop = () => {
           whileHover={{ scale: 1.1, y: -2 }}
           whileTap={{ scale: 0.95 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-gold-500 to-gold-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40 flex items-center justify-center group"
+          className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-gold-500 to-gold-600 text-ink-950 rounded-full shadow-lg hover:shadow-gold-500/30 transition-all duration-300 z-40 flex items-center justify-center group border border-gold-400/20"
         >
           <ChevronUp 
-            size={24} 
+            size={20} 
             className="group-hover:-translate-y-0.5 transition-transform duration-200" 
           />
         </motion.button>

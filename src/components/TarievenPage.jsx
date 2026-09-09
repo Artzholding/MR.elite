@@ -45,7 +45,7 @@ const TarievenPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-ink-950 text-white bg-grain">
       <Header />
       
       <div className="pt-20 pb-20">
@@ -70,14 +70,15 @@ const TarievenPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <span className="section-label mb-6 block">{t('rates')}</span>
+            <h1 className="font-serif text-4xl md:text-5xl font-semibold text-white mb-6">
               {t('tarievenTitle')}
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto mb-8" />
+            <div className="divider-gold mb-8" />
             
             {/* Introduction */}
-            <div className="glass-effect rounded-2xl p-6 max-w-4xl mx-auto mb-12">
-              <p className="text-white/80 text-lg leading-relaxed">
+            <div className="glass-card p-6 max-w-4xl mx-auto mb-12">
+              <p className="text-white/60 text-base leading-relaxed font-light">
                 {t('tarievenInfoText')}
               </p>
             </div>
@@ -88,16 +89,16 @@ const TarievenPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="glass-effect rounded-2xl overflow-hidden mb-12"
+            className="glass-card overflow-hidden mb-12"
           >
             <div className="bg-gradient-to-r from-gold-500 to-gold-600 p-6">
-              <h2 className="text-2xl font-bold text-black text-center">{t('hourlyRates')}</h2>
+              <h2 className="font-serif text-2xl font-semibold text-ink-950 text-center">{t('hourlyRates')}</h2>
             </div>
             
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-white/10">
+                  <tr className="border-b border-white/[0.08]">
                     <th className="text-left p-4 text-white font-semibold">
                       <div className="flex items-center space-x-2">
                         <Clock size={18} className="text-gold-400" />
@@ -131,7 +132,7 @@ const TarievenPage = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.02 }}
-                      className="border-b border-white/5 hover:bg-white/5 transition-colors"
+                      className="border-b border-white/[0.04] hover:bg-white/[0.03] transition-colors"
                     >
                       <td className="p-4">
                         <span className="text-white font-medium">{row.hours} {t('hourUnit')}</span>
@@ -159,43 +160,43 @@ const TarievenPage = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="grid md:grid-cols-2 gap-6"
           >
-            <div className="glass-effect rounded-2xl p-6">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-xl font-semibold text-white mb-4 flex items-center">
                 <Euro className="text-gold-400 mr-3" size={20} />
                 {t('extraDay')}
               </h3>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-white/80">{t('oneMan')}</span>
+                  <span className="text-white/60 text-sm font-light">{t('oneMan')}</span>
                   <span className="text-gold-400 font-semibold">€ {extraRates.extraDay.man},-</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-white/80">{t('coupleCol')}</span>
+                  <span className="text-white/60 text-sm font-light">{t('coupleCol')}</span>
                   <span className="text-gold-400 font-semibold">€ {extraRates.extraDay.couple},-</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-white/80">{t('twoMen')}</span>
+                  <span className="text-white/60 text-sm font-light">{t('twoMen')}</span>
                   <span className="text-gold-400 font-semibold">€ {extraRates.extraDay.twoMen},-</span>
                 </div>
               </div>
             </div>
 
-            <div className="glass-effect rounded-2xl p-6">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-xl font-semibold text-white mb-4 flex items-center">
                 <Clock className="text-gold-400 mr-3" size={20} />
                 {t('extraHour')}
               </h3>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-white/80">{t('oneMan')}</span>
+                  <span className="text-white/60 text-sm font-light">{t('oneMan')}</span>
                   <span className="text-gold-400 font-semibold">€ {extraRates.extraHour.man},-</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-white/80">{t('coupleCol')}</span>
+                  <span className="text-white/60 text-sm font-light">{t('coupleCol')}</span>
                   <span className="text-gold-400 font-semibold">€ {extraRates.extraHour.couple},-</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-white/80">{t('twoMen')}</span>
+                  <span className="text-white/60 text-sm font-light">{t('twoMen')}</span>
                   <span className="text-gold-400 font-semibold">€ {extraRates.extraHour.twoMen},-</span>
                 </div>
               </div>
@@ -209,11 +210,11 @@ const TarievenPage = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-center mt-12"
           >
-            <div className="glass-effect rounded-xl p-6 max-w-2xl mx-auto">
-              <p className="text-white/70 text-sm mb-4">
+            <div className="glass-card p-6 max-w-2xl mx-auto">
+              <p className="text-white/45 text-xs mb-4 font-light">
                 *{t('tarievenNote')}
               </p>
-              <p className="text-gold-400 font-semibold mb-6">
+              <p className="text-gold-400/90 font-medium text-sm mb-6">
                 {t('tarievenFooter')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -221,7 +222,7 @@ const TarievenPage = () => {
                   href="tel:+31616335723"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-black font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300"
+                  className="inline-flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-ink-950 font-semibold rounded-full hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold-500/25"
                 >
                   <span>{t('contactUs')}</span>
                 </motion.a>
@@ -229,7 +230,7 @@ const TarievenPage = () => {
                   onClick={() => window.location.hash = '#booking'}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center space-x-2 px-6 py-3 border border-gold-400 text-gold-400 font-semibold rounded-full hover:bg-gold-400 hover:text-black transition-all duration-300"
+                  className="inline-flex items-center justify-center space-x-2 px-6 py-3 border border-gold-400/50 text-gold-400 font-semibold rounded-full hover:bg-gold-400 hover:text-ink-950 hover:border-gold-400 transition-all duration-300"
                 >
                   <span>{t('bookNow')}</span>
                 </motion.button>

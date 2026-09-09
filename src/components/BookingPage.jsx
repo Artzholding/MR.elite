@@ -10,7 +10,7 @@ const BookingPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black pt-20">
+    <div className="min-h-screen bg-ink-950 pt-20 bg-grain">
       {/* Back Button */}
       <div className="max-w-4xl mx-auto px-4 py-6">
         <motion.button

@@ -79,7 +79,7 @@ function App() {
     
     if (currentPage === 'booking') {
       return (
-        <div className="min-h-screen bg-black pt-20">
+        <div className="min-h-screen bg-ink-950 pt-20">
           <BookingForm />
         </div>
       );
@@ -99,7 +99,7 @@ function App() {
 
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-ink-950 text-white">
         <AnimatePresence>
           {loading && <Preloader />}
         </AnimatePresence>

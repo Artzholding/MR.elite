@@ -5,22 +5,32 @@ import { useLanguage } from '../contexts/LanguageContext';
 const About = () => {
   const { t } = useLanguage();
 
+  const stats = [
+    { value: '14+', label: t('yearsExperience') },
+    { value: '500+', label: t('satisfiedClients') },
+    { value: '24/7', label: t('availability') },
+  ];
+
   return (
-    <section id="about" className="py-20 bg-black">
-      <div className="max-w-4xl mx-auto px-4">
+    <section id="about" className="py-24 md:py-32 bg-ink-950 bg-grain relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute top-1/2 left-0 w-64 h-64 bg-gold-600/[0.06] rounded-full blur-[100px]" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Main About Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
+          <span className="section-label mb-6 block">{t('about')}</span>
+          <h2 className="section-title mb-12">
             {t('aboutIntro')}
           </h2>
-          
-          <div className="space-y-8 text-lg text-white/80 leading-relaxed max-w-3xl mx-auto">
+
+          <div className="space-y-6 text-lg text-white/60 leading-relaxed max-w-3xl mx-auto font-light">
             <p>{t('aboutIntro1')}</p>
             <p>{t('aboutIntro2')}</p>
             <p>{t('aboutIntro3')}</p>
@@ -33,7 +43,7 @@ const About = () => {
           whileInView={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
-          className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto mb-16"
+          className="divider-gold mb-20"
         />
 
         {/* Additional About Content */}
@@ -44,29 +54,35 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
+          <h3 className="font-serif text-3xl md:text-4xl font-semibold text-white mb-10">
             {t('aboutTitle')}
           </h3>
-          
-          <div className="space-y-6 text-lg text-white/80 leading-relaxed">
+
+          <div className="space-y-5 text-lg text-white/60 leading-relaxed max-w-3xl mx-auto font-light">
             <p>{t('aboutText1')}</p>
             <p>{t('aboutText2')}</p>
             <p>{t('aboutText3')}</p>
           </div>
 
-          <div className="mt-12 grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gold-400 mb-2">14+</div>
-              <div className="text-white/60 text-sm uppercase tracking-wider">{t('yearsExperience')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gold-400 mb-2">500+</div>
-              <div className="text-white/60 text-sm uppercase tracking-wider">{t('satisfiedClients')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gold-400 mb-2">24/7</div>
-              <div className="text-white/60 text-sm uppercase tracking-wider">{t('availability')}</div>
-            </div>
+          {/* Stats */}
+          <div className="mt-16 grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="font-serif text-4xl md:text-5xl font-semibold text-gradient mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-white/40 text-[11px] md:text-xs uppercase tracking-[0.15em]">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
